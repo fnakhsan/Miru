@@ -1,26 +1,92 @@
 [versions]
-agp = "8.4.0"
-kotlin = "1.9.0"
-coreKtx = "1.13.1"
-junit = "4.13.2"
-junitVersion = "1.2.1"
-espressoCore = "3.6.1"
-appcompat = "1.7.0"
-material = "1.12.0"
-activity = "1.9.1"
-constraintlayout = "2.1.4"
+#   Gradle
+agp = "8.4.2"
+#   Kotlin
+kotlin-android-version = "2.0.20"
+kotlin-ksp-version = "1.9.24-1.0.20"
+kotlinx-coroutine-version = "1.7.3"
+kotlinx-serialization-version = "1.7.3"
+#   AndroidX Core
+androidx-core-version = "1.13.1"
+androidx-appcompat-version = "1.7.0"
+androidx-activity-version = "1.9.2"
+androidx-lifecycle-version = "2.8.6"
+androidx-navigation-version = "2.8.1"
+#   Testing
+junit-version = "4.13.2"
+junit-androidx-version = "1.2.1"
+espresso-core-version = "3.6.1"
+# Timber
+timber-version = "5.0.1"
+#   DI
+koin-version = "4.0.0"
+koin-annotations-version = "1.4.0-RC4"
+#   Presentation
+material-version = "1.12.0"
+constraintlayout-version = "2.1.4"
+cardview-version = "1.0.0"
+recyclerview-version = "1.3.2"
+glide-version = "4.15.1"
 
 [libraries]
-androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
-androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
-androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
-androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+#   AndroidX
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-core-version" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat-version" }
+androidx-activity = { module = "androidx.activity:activity", version.ref = "androidx-activity-version" }
+
+#   Testing
+junit = { module = "junit:junit", version.ref = "junit-version" }
+androidx-junit = { module = "androidx.test.ext:junit", version.ref = "junit-androidx-version" }
+androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso-core-version" }
+
+#   Logging
+timber = { module = "com.jakewharton.timber:timber", version.ref = "timber-version" }
+
+#   DI
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin-version" }
+koin-annotations = { module = "io.insert-koin:koin-annotations", version.ref = "koin-annotations-version" }
+koin-ksp-compiler = { module = "io.insert-koin:koin-ksp-compiler", version.ref = "koin-annotations-version" }
+
+#   Multithreading
+coroutine-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutine-version" }
+coroutine-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutine-version" }
+
+#   Lifecycle
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycle-version" }
+androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle-version" }
+androidx-lifecycle-livedata-ktx = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "androidx-lifecycle-version" }
+
+#   Navigation
+androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "androidx-navigation-version" }
+androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "androidx-navigation-version" }
+
+#   Serialization
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-version" }
+
+#   Presentation
+material = { module = "com.google.android.material:material", version.ref = "material-version" }
+androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout-version" }
+androidx-cardview = { module = "androidx.cardview:cardview", version.ref = "cardview-version" }
+androidx-recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview-version" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide-version" }
+glide-ksp = { module = "com.github.bumptech.glide:ksp", version.ref = "glide-version" }
+
+[bundles]
+#   Koin Bundling
+koin = ["koin-android", "koin-annotations"]
+#   Lifecycle Bundling
+lifecycle = ["androidx-lifecycle-runtime-ktx", "androidx-lifecycle-viewmodel-ktx", "androidx-lifecycle-livedata-ktx"]
+#   Coroutine Core + Android
+coroutine = ["coroutine-core", "coroutine-android"]
+#   Navigation UI + Fragment
+navigation = ["androidx-navigation-ui-ktx", "androidx-navigation-fragment-ktx"]
 
 [plugins]
+#   Android
 android-application = { id = "com.android.application", version.ref = "agp" }
-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+#   Kotlin
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin-android-version" }
+kotlin-ksp = { id = "com.google.devtools.ksp", version.ref = "kotlin-ksp-version" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin-android-version" }
+
 
