@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.ksp)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.google.gms.google.services)
+    alias(libs.plugins.google.firebase.crashlytics)
 }
 
 android {
@@ -35,6 +37,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        buildConfig = true
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -49,7 +55,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     //    Logging
-    implementation(libs.timber)
+    implementation(libs.bundles.logging)
 
     //    DI
     implementation(libs.bundles.koin)

@@ -3,7 +3,7 @@
 agp = "8.4.2"
 #   Kotlin
 kotlin-android-version = "2.0.20"
-kotlin-ksp-version = "1.9.24-1.0.20"
+kotlin-ksp-version = "2.0.20-1.0.25"
 kotlinx-coroutine-version = "1.7.3"
 kotlinx-serialization-version = "1.7.3"
 #   AndroidX Core
@@ -16,11 +16,15 @@ androidx-navigation-version = "2.8.1"
 junit-version = "4.13.2"
 junit-androidx-version = "1.2.1"
 espresso-core-version = "3.6.1"
-# Timber
+# Logging
 timber-version = "5.0.1"
+firebase-crashlytics = "19.1.0"
 #   DI
 koin-version = "4.0.0"
 koin-annotations-version = "1.4.0-RC4"
+#   Firebase
+google-gms-google-services = "4.4.2"
+google-firebase-crashlytics = "3.0.2"
 #   Presentation
 material-version = "1.12.0"
 constraintlayout-version = "2.1.4"
@@ -41,6 +45,7 @@ androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", vers
 
 #   Logging
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber-version" }
+firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics", version.ref = "firebase-crashlytics" }
 
 #   DI
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin-version" }
@@ -72,6 +77,8 @@ glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide-versi
 glide-ksp = { module = "com.github.bumptech.glide:ksp", version.ref = "glide-version" }
 
 [bundles]
+#   Logging Bundling
+logging = ["timber", "firebase-crashlytics"]
 #   Koin Bundling
 koin = ["koin-android", "koin-annotations"]
 #   Lifecycle Bundling
@@ -88,5 +95,7 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin-android-version" }
 kotlin-ksp = { id = "com.google.devtools.ksp", version.ref = "kotlin-ksp-version" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin-android-version" }
+google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "google-gms-google-services" }
+google-firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "google-firebase-crashlytics" }
 
 

@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.ppl.miru" />
+                  <option name="mobileSdkAppId" value="1:384518710531:android:a30058bfae541bf9d77536" />
+                  <option name="projectId" value="miru-a8406" />
+                  <option name="projectNumber" value="384518710531" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
