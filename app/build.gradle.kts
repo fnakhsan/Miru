@@ -73,6 +73,9 @@ dependencies {
     //    Serialization
     implementation(libs.kotlinx.serialization.json)
 
+    //    Pagination
+    implementation(libs.androidx.paging.runtime)
+
     //    Presentation
     implementation(libs.material)
     implementation(libs.androidx.constraintlayout)
